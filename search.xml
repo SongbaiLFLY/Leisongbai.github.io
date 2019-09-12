@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>关于pythonanywhere环境下的部署</title>
+      <link href="/2019/09/12/pythonanywhere/"/>
+      <url>/2019/09/12/pythonanywhere/</url>
+      
+        <content type="html"><![CDATA[<p> 1.通过File上传项目的压缩文件</p><img src="/2019/09/12/pythonanywhere/1.png"> <a id="more"></a><img src="/2019/09/12/pythonanywhere/2.png"><p> 2.解压</p><ol start="3"><li><p>环境配置</p><img src="/2019/09/12/pythonanywhere/3.png"></li><li><p>执行 pip install -r requeirments.txt安装依赖包</p></li><li><p>创建数据库，并根据数据库名配置django的setting文件</p></li><li><p>执行python manage.py  makemigrations产生迁移文件，<br> 执行python manage.py migrate 生成表</p></li><li><p>数据库配置</p><img src="/2019/09/12/pythonanywhere/4.png"></li><li><p>web配置</p><img src="/2019/09/12/pythonanywhere/6.png"><img src="/2019/09/12/pythonanywhere/5.png"></li><li><p>关于路径的配置</p><img src="/2019/09/12/pythonanywhere/7.png"><p>重新加载web, 最后记得在3个月内点击1次，否则网站会自动回收资源</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> mysql </tag>
+            
+            <tag> django </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+    
+    
+    <entry>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>about</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="Casual-Lei"><a href="#Casual-Lei" class="headerlink" title="Casual_Lei"></a>Casual_Lei</h1><p><strong>Freedom of living</strong></p><p><strong><em>Email</em></strong>: &ensp; <a href="mailto:2574162899@qq.com" target="_blank" rel="noopener">2574162899@qq.com</a><br><strong><em>Homepage</em></strong>: &ensp; <a href="https://theshy.fun" target="_blank" rel="noopener">A Casual Boy</a><br><strong><em>github</em></strong>: &ensp; <a href="http://github.com/leisongbai" target="_blank" rel="noopener">Casual Boy</a></p><h1 id="About-Me"><a href="#About-Me" class="headerlink" title="About Me"></a>About Me</h1><div class="alert-blue"> 上次更新时间: 2019-9-12 19:45 </div><p><em>1.我或许是个无聊的人吧，兴趣不多</em></p><p><em>2.随心所欲,我的计划赶不上我的变化啊</em></p><p><em>3.有时候心血来潮会对某些东西和狂热,但有时又会突然感到无趣而放弃</em></p>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+  
+</search>

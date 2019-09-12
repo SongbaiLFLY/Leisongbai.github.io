@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>A casual Blog</title>
+  
+  <subtitle>My&#39;casual life</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://leisongbai.github.io/"/>
+  <updated>2019-09-12T06:24:55.219Z</updated>
+  <id>http://leisongbai.github.io/</id>
+  
+  <author>
+    <name>Casual L</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于pythonanywhere环境下的部署</title>
+    <link href="http://leisongbai.github.io/2019/09/12/pythonanywhere/"/>
+    <id>http://leisongbai.github.io/2019/09/12/pythonanywhere/</id>
+    <published>2019-09-12T09:56:50.327Z</published>
+    <updated>2019-09-12T06:24:55.219Z</updated>
+    
+    <content type="html"><![CDATA[<p> 1.通过File上传项目的压缩文件</p><img src="/2019/09/12/pythonanywhere/1.png"> <a id="more"></a><img src="/2019/09/12/pythonanywhere/2.png"><p> 2.解压</p><ol start="3"><li><p>环境配置</p><img src="/2019/09/12/pythonanywhere/3.png"></li><li><p>执行 pip install -r requeirments.txt安装依赖包</p></li><li><p>创建数据库，并根据数据库名配置django的setting文件</p></li><li><p>执行python manage.py  makemigrations产生迁移文件，<br> 执行python manage.py migrate 生成表</p></li><li><p>数据库配置</p><img src="/2019/09/12/pythonanywhere/4.png"></li><li><p>web配置</p><img src="/2019/09/12/pythonanywhere/6.png"><img src="/2019/09/12/pythonanywhere/5.png"></li><li><p>关于路径的配置</p><img src="/2019/09/12/pythonanywhere/7.png"><p>重新加载web, 最后记得在3个月内点击1次，否则网站会自动回收资源</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt; 1.通过File上传项目的压缩文件&lt;/p&gt;
+&lt;img src=&quot;/2019/09/12/pythonanywhere/1.png&quot;&gt;
+    
+    </summary>
+    
+    
+      <category term="笔记" scheme="http://leisongbai.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="mysql" scheme="http://leisongbai.github.io/tags/mysql/"/>
+    
+      <category term="django" scheme="http://leisongbai.github.io/tags/django/"/>
+    
+  </entry>
+  
+</feed>
