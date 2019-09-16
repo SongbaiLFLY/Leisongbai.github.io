@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>django中redis的使用</title>
+      <link href="/2019/09/16/python%E4%B8%AD%E5%85%B3%E4%BA%8Eredis%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+      <url>/2019/09/16/python%E4%B8%AD%E5%85%B3%E4%BA%8Eredis%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<p>在最近做的一个项目中,主要使用的redis,而项目中主要使用的是Django<br>所以主要总结一下django关于redis使用的一些库和方法</p><p>##一.django_redis库</p><blockquote><blockquote><p>Django 版本支持<br>  django-redis 3.8.x 支持 django 1.4, 1.5, 1.6, 1.7 (或许会有 1.8)<br>  django-redis 4.4.x 支持 django 1.6, 1.7, 1.8, 1.9 和 1.10<br>  Redis Server 支持<br>  django-redis 3.x.y 支持 redis-server 2.6.x 或更高<br>  django-redis 4.x.y 支持 redis-server 2.8.x 或更高</p></blockquote></blockquote><p>1.安装<br>    pip install django-redis<br>2.作为 cache backend 使用配置<br>为了使用 django-redis , 你应该将你的 django cache setting 改成这样:<br>   <figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs CACHES">        &quot;default&quot;: &#123;<br>            &quot;BACKEND&quot;: &quot;django_redis.cache.RedisCache&quot;,<br>            &quot;LOCATION&quot;: &quot;redis://127.0.0.1:6379/1&quot;,<br>            &quot;OPTIONS&quot;: &#123;<br>                &quot;CLIENT_CLASS&quot;: &quot;django_redis.client.DefaultClient&quot;,<br>            &#125;<br>        &#125;<br>    &#125;<br>   ``` <br>这只是最基本的配置,详情请查阅官方文档&lt;https://django-redis-chs.readthedocs.io/zh_CN/latest/&gt;<br><br>3.使用<br></code></pre></td></tr></table></figure></p><pre><code>from django_redis import get_redis_connectioncoon = get_redis_connection() </code></pre><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><br>##二.redis库<br>在这个库中包含了许多redis的相关方法,使用起来非常方便,但只有一个缺点吧,就是连接<br>``` <br>    import redis<br>    连接池<br>    pool = redis.ConnectionPool(host=&apos;127.0.0.1&apos;,port=6379)<br>    从池子里拿一个连接<br>    coon = redis.Redis(connection_pool=pool)<br>    coon.hset(&apos;people&apos;,&apos;age&apos;,&apos;24&apos;)<br>    coon.hset(&apos;people&apos;,&apos;name&apos;,&apos;yangjing&apos;)<br>    coon.hset(&apos;people&apos;,&apos;height&apos;,&apos;158&apos;)<br>```    <br><br>redis.py 默认在执行每一次请求都会创建（连接池申请连接）和断开（归还连接池）一次连续操作，如果想要在一次请求中指定多个命令，则可以使用pipline实现一次请求指定多个命令，并且默认情况下一次（）事务pipline都是原子性（都成功或都不成功）操作。<br></code></pre></td></tr></table></figure><pre><code>import redis事务coon = redis.Redis(host=&apos;127.0.0.1&apos;,port=6379)拿到一个管道，transaction、pi = coon.pipeline(transaction=True)说明是批量命令pi.multi()pi.set(&apos;author&apos;,&apos;作者&apos;)pi.set(&apos;publish&apos;,&apos;出版社&apos;)执行pi.execute()</code></pre><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><br>##三.django.core.cache<br>要使用redis的ttl,我是只找到这一个方法,毕竟学得还太少吧.<br></code></pre></td></tr></table></figure><pre><code>cache.set(&quot;foo&quot;, &quot;bar&quot;, timeout=22)cache.ttl(&quot;foo&quot;)</code></pre><p>```</p><p>这些库中的具体方法并没有给出,毕竟比较多,希望自己去查找吧.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> django </tag>
+            
+            <tag> redis </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于pythonanywhere环境下的部署</title>
       <link href="/2019/09/12/pythonanywhere/"/>
       <url>/2019/09/12/pythonanywhere/</url>
@@ -34,22 +61,22 @@
     
     
     <entry>
-      <title>about</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
-        <content type="html"><![CDATA[<h1 id="Casual-Lei"><a href="#Casual-Lei" class="headerlink" title="Casual_Lei"></a>Casual_Lei</h1><p><strong>Freedom of living</strong></p><p><strong><em>Email</em></strong>: &ensp; <a href="mailto:2574162899@qq.com" target="_blank" rel="noopener">2574162899@qq.com</a><br><strong><em>Homepage</em></strong>: &ensp; <a href="https://theshy.fun" target="_blank" rel="noopener">A Casual Boy</a><br><strong><em>github</em></strong>: &ensp; <a href="http://github.com/leisongbai" target="_blank" rel="noopener">Casual Boy</a></p><h1 id="About-Me"><a href="#About-Me" class="headerlink" title="About Me"></a>About Me</h1><div class="alert-blue"> 上次更新时间: 2019-9-12 19:45 </div><p><em>1.我或许是个无聊的人吧，兴趣不多</em></p><p><em>2.随心所欲,我的计划赶不上我的变化啊</em></p><p><em>3.有时候心血来潮会对某些东西和狂热,但有时又会突然感到无趣而放弃</em></p>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>about</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="Casual-Lei"><a href="#Casual-Lei" class="headerlink" title="Casual_Lei"></a>Casual_Lei</h1><p><strong>Freedom of living</strong></p><p><strong><em>Email</em></strong>: &ensp; <a href="mailto:2574162899@qq.com" target="_blank" rel="noopener">2574162899@qq.com</a><br><strong><em>Homepage</em></strong>: &ensp; <a href="https://theshy.fun" target="_blank" rel="noopener">A Casual Boy</a><br><strong><em>github</em></strong>: &ensp; <a href="http://github.com/leisongbai" target="_blank" rel="noopener">Casual Boy</a></p><h1 id="About-Me"><a href="#About-Me" class="headerlink" title="About Me"></a>About Me</h1><div class="alert-blue"> 上次更新时间: 2019-9-12 19:45 </div><p><em>1.我或许是个无聊的人吧，兴趣不多</em>\</p><p><em>2.随心所欲,我的计划赶不上我的变化啊</em>\</p><p><em>3.有时候心血来潮会对某些东西和狂热,但有时又会突然感到无趣而放弃</em>\</p><p><em>4.</em></p>]]></content>
       
     </entry>
     

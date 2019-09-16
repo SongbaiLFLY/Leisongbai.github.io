@@ -135,7 +135,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>关于 | A casual Blog - My'casual life</title>
+    <title>django中redis的使用 | A casual Blog - My'casual life</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -164,7 +164,7 @@
         
         <li role="menuitem"><a href="/tags"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
         
-        <li role="menuitem"><a href="/about/" class="current"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
         
       </ul>
     </nav>
@@ -177,29 +177,103 @@
         <div class="main-container">
           <div class="content">
             
-<div id="page" class="page">
-  <article class="article post card animate">
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://leisongbai.github.io/2019/09/16/python中关于redis的使用/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Casual L">
+       <meta itemprop="description" content="落花有意随流水,流水无心恋落花">
+       <meta itemprop="image" content="/images/1.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="A casual Blog">
+      </span>
+    </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <span>关于</span>
-      </h1>
+      <h1 class="post-title" itemprop="name headline">django中redis的使用</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-09-16T16:59:45+08:00">2019-09-16 16:59:45</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+        </span>
+        
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-comment-count">
+          <i class="far fa-comments"></i><span><a href="/2019/09/16/python中关于redis的使用/#disqus_thread" itemprop="discussionUrl"><span class="post-comment-count disqus-comment-count" data-disqus-identifier="2019/09/16/python中关于redis的使用/" itemprop="commentCount"></span></a></span>
+        </span>
+        
+        
+      </div>
     </header>
-    <main class="post-main">
-      <h1 id="Casual-Lei"><a href="#Casual-Lei" class="headerlink" title="Casual_Lei"></a>Casual_Lei</h1><p><strong>Freedom of living</strong></p>
-<p><strong><em>Email</em></strong>: &ensp; <a href="mailto:2574162899@qq.com" target="_blank" rel="noopener">2574162899@qq.com</a><br><strong><em>Homepage</em></strong>: &ensp; <a href="https://theshy.fun" target="_blank" rel="noopener">A Casual Boy</a><br><strong><em>github</em></strong>: &ensp; <a href="http://github.com/leisongbai" target="_blank" rel="noopener">Casual Boy</a></p>
-<h1 id="About-Me"><a href="#About-Me" class="headerlink" title="About Me"></a>About Me</h1><div class="alert-blue">
- 上次更新时间: 2019-9-12 19:45 
-</div>
+    <main class="post-main" itemprop="articleBody">
+      <p>在最近做的一个项目中,主要使用的redis,而项目中主要使用的是Django<br>所以主要总结一下django关于redis使用的一些库和方法</p>
+<p>##一.django_redis库</p>
+<blockquote>
+<blockquote>
+<p>Django 版本支持<br>  django-redis 3.8.x 支持 django 1.4, 1.5, 1.6, 1.7 (或许会有 1.8)<br>  django-redis 4.4.x 支持 django 1.6, 1.7, 1.8, 1.9 和 1.10<br>  Redis Server 支持<br>  django-redis 3.x.y 支持 redis-server 2.6.x 或更高<br>  django-redis 4.x.y 支持 redis-server 2.8.x 或更高</p>
+</blockquote>
+</blockquote>
+<p>1.安装<br>    pip install django-redis<br>2.作为 cache backend 使用配置<br>为了使用 django-redis , 你应该将你的 django cache setting 改成这样:<br>   <figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs CACHES">        &quot;default&quot;: &#123;<br>            &quot;BACKEND&quot;: &quot;django_redis.cache.RedisCache&quot;,<br>            &quot;LOCATION&quot;: &quot;redis://127.0.0.1:6379/1&quot;,<br>            &quot;OPTIONS&quot;: &#123;<br>                &quot;CLIENT_CLASS&quot;: &quot;django_redis.client.DefaultClient&quot;,<br>            &#125;<br>        &#125;<br>    &#125;<br>   ``` <br>这只是最基本的配置,详情请查阅官方文档&lt;https://django-redis-chs.readthedocs.io/zh_CN/latest/&gt;<br><br>3.使用<br></code></pre></td></tr></table></figure></p>
+<pre><code>from django_redis import get_redis_connection
+coon = get_redis_connection() </code></pre><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><br>##二.redis库<br>在这个库中包含了许多redis的相关方法,使用起来非常方便,但只有一个缺点吧,就是连接<br>``` <br>    import redis<br>    连接池<br>    pool = redis.ConnectionPool(host=&apos;127.0.0.1&apos;,port=6379)<br>    从池子里拿一个连接<br>    coon = redis.Redis(connection_pool=pool)<br>    coon.hset(&apos;people&apos;,&apos;age&apos;,&apos;24&apos;)<br>    coon.hset(&apos;people&apos;,&apos;name&apos;,&apos;yangjing&apos;)<br>    coon.hset(&apos;people&apos;,&apos;height&apos;,&apos;158&apos;)<br>```    <br><br>redis.py 默认在执行每一次请求都会创建（连接池申请连接）和断开（归还连接池）一次连续操作，如果想要在一次请求中指定多个命令，则可以使用pipline实现一次请求指定多个命令，并且默认情况下一次（）事务pipline都是原子性（都成功或都不成功）操作。<br></code></pre></td></tr></table></figure>
 
+<pre><code>import redis
+事务
+coon = redis.Redis(host=&apos;127.0.0.1&apos;,port=6379)
+拿到一个管道，transaction、
+pi = coon.pipeline(transaction=True)
+说明是批量命令
+pi.multi()
+pi.set(&apos;author&apos;,&apos;作者&apos;)
+pi.set(&apos;publish&apos;,&apos;出版社&apos;)
+执行
+pi.execute()</code></pre><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><br>##三.django.core.cache<br>要使用redis的ttl,我是只找到这一个方法,毕竟学得还太少吧.<br></code></pre></td></tr></table></figure>
 
-<p><em>1.我或许是个无聊的人吧，兴趣不多</em>\</p>
-<p><em>2.随心所欲,我的计划赶不上我的变化啊</em>\</p>
-<p><em>3.有时候心血来潮会对某些东西和狂热,但有时又会突然感到无趣而放弃</em>\</p>
-<p><em>4.</em></p>
+<pre><code>cache.set(&quot;foo&quot;, &quot;bar&quot;, timeout=22)
+cache.ttl(&quot;foo&quot;)</code></pre><p>```</p>
+<p>这些库中的具体方法并没有给出,毕竟比较多,希望自己去查找吧.</p>
 
     </main>
-    <footer class="post-footer"></footer>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/django/" rel="tag"><i class="fas fa-tags"></i>django</a>
+        
+        <a class="post-tag button" href="/tags/redis/" rel="tag"><i class="fas fa-tags"></i>redis</a>
+        
+      </div>
+      
+    </footer>
   </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/09/12/pythonanywhere/" rel="next" title="关于pythonanywhere环境下的部署"><i class="fas fa-angle-left"></i><span class="nav-title">关于pythonanywhere环境下的部署</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
   
   
 
@@ -210,8 +284,8 @@
   <div id="disqus_thread" class="disqus_thread"></div>
   <script type="text/javascript">
   var disqus_config = function () {
-    this.page.url = "http://leisongbai.github.io/about/index.html";
-    this.page.identifier = "about/index.html";
+    this.page.url = "http://leisongbai.github.io/2019/09/16/python中关于redis的使用/";
+    this.page.identifier = "2019/09/16/python中关于redis的使用/";
   };
   (function() {
     var d = document, s = d.createElement("script");
@@ -290,12 +364,6 @@
     
     
     
-    
-    <hr>
-    <div class="post-toc sidebar-item" id="toc-div">
-      <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#Casual-Lei"><span class="toc-text">Casual_Lei</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#About-Me"><span class="toc-text">About Me</span></a></li></ol></div>
-    </div>
     
     
     
