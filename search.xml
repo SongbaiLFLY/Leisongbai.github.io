@@ -20,9 +20,9 @@
       
         <tags>
             
-            <tag> django </tag>
-            
             <tag> redis </tag>
+            
+            <tag> django </tag>
             
         </tags>
       
@@ -47,9 +47,9 @@
       
         <tags>
             
-            <tag> mysql </tag>
-            
             <tag> django </tag>
+            
+            <tag> mysql </tag>
             
         </tags>
       
@@ -58,17 +58,6 @@
     
   
   
-    
-    
-    <entry>
-      <title>about</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="Casual-Lei"><a href="#Casual-Lei" class="headerlink" title="Casual_Lei"></a>Casual_Lei</h1><p><strong>Freedom of living</strong><br><strong><em>Email</em></strong>: &ensp; <a href="mailto:2574162899@qq.com" target="_blank" rel="noopener">2574162899@qq.com</a><br><strong><em>Homepage</em></strong>: &ensp; <a href="https://theshy.fun" target="_blank" rel="noopener">A Casual Boy</a><br><strong><em>github</em></strong>: &ensp; <a href="http://github.com/leisongbai" target="_blank" rel="noopener">Casual Boy</a></p><h1 id="About-Me"><a href="#About-Me" class="headerlink" title="About Me"></a>About Me</h1><div class="alert-blue"> 上次更新时间: 2019-9-16 17:45 </div><p><strong>1.我或许是个无聊的人吧，兴趣不多</strong></p><p><strong>2.随心所欲,我的计划赶不上我的变化啊</strong></p><p><strong>3.有时候心血来潮会对某些东西和狂热,但有时又会突然感到无趣而放弃</strong></p><p><strong>4.不知道为啥,我常常喜欢说”唉”</strong></p><p><strong>5.我在认真做事的时候不喜欢被其他事情打扰,我会对正在做的以外的事很敷衍</strong></p>]]></content>
-      
-    </entry>
-    
     
     
     <entry>
@@ -88,6 +77,17 @@
       <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>about</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="Casual-Lei"><a href="#Casual-Lei" class="headerlink" title="Casual_Lei"></a>Casual_Lei</h1><p><strong>Freedom of living</strong><br><strong><em>Email</em></strong>: &ensp; <a href="mailto:2574162899@qq.com" target="_blank" rel="noopener">2574162899@qq.com</a><br><strong><em>Homepage</em></strong>: &ensp; <a href="https://theshy.fun" target="_blank" rel="noopener">A Casual Boy</a><br><strong><em>github</em></strong>: &ensp; <a href="http://github.com/leisongbai" target="_blank" rel="noopener">Casual Boy</a></p><h1 id="About-Me"><a href="#About-Me" class="headerlink" title="About Me"></a>About Me</h1><div class="alert-blue"> 上次更新时间: 2019-9-16 17:45 </div><p><strong>1.我或许是个无聊的人吧，兴趣不多</strong></p><p><strong>2.随心所欲,我的计划赶不上我的变化啊</strong></p><p><strong>3.有时候心血来潮会对某些东西和狂热,但有时又会突然感到无趣而放弃</strong></p><p><strong>4.不知道为啥,我常常喜欢说”唉”</strong></p><p><strong>5.我在认真做事的时候不喜欢被其他事情打扰,我会对正在做的以外的事很敷衍</strong></p><p><strong>6.今天听了学长他的面试经历后,体会好了基础的重要性!</strong></p><p><strong>7.我自以为是个讲效率的人,但是今天发现方法和方向是很重要的,否则做的都是无用功</strong></p>]]></content>
       
     </entry>
     
