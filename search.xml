@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>sanic静态文件</title>
+      <link href="/2019/12/28/sanic%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E8%AE%BE%E7%BD%AE/"/>
+      <url>/2019/12/28/sanic%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E8%AE%BE%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<p>前几天在写一个项目,用sanic重写之前的网站。很简单的，<br>因为是静态的，所以连JinJa2都不用。但是还是遇到一点问题。</p><h3 id="静态文件的路径设置"><a href="#静态文件的路径设置" class="headerlink" title="静态文件的路径设置"></a>静态文件的路径设置</h3><h4 id="1-直接通过app进行设置"><a href="#1-直接通过app进行设置" class="headerlink" title="1.直接通过app进行设置"></a>1.直接通过app进行设置</h4><pre><code>from sanic import Sanicapp = Sanic()app.static(&apos;/static&apos;, &apos;/static&apos;)参数分别为uri和文件的地址</code></pre><h4 id="2-设置蓝图"><a href="#2-设置蓝图" class="headerlink" title="2.设置蓝图"></a>2.设置蓝图</h4><pre><code>from sanic import Sanicfrom sanic.blueprint import Blueprintapp = Sanic()bp = Blueprint(&apos;bp&apos;, url_prefix=&apos;/bp&apos;)bp.static(&apos;/static&apos;, &apos;/static&apos;)参数一样，但是蓝图的uri会自动添加前缀</code></pre><p>还有就是使用docker进行环境部署很方便,但是要注意文件的路径</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> sanic </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>django中redis的使用</title>
       <link href="/2019/09/16/python%E4%B8%AD%E5%85%B3%E4%BA%8Eredis%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
       <url>/2019/09/16/python%E4%B8%AD%E5%85%B3%E4%BA%8Eredis%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
@@ -61,22 +86,22 @@
     
     
     <entry>
-      <title>about</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
-        <content type="html"><![CDATA[<h1 id="Casual-Lei"><a href="#Casual-Lei" class="headerlink" title="Casual_Lei"></a>Casual_Lei</h1><p><strong>Freedom of living</strong><br><strong><em>Email</em></strong>: &ensp; <a href="mailto:2574162899@qq.com" target="_blank" rel="noopener">2574162899@qq.com</a><br><strong><em>Homepage</em></strong>: &ensp; <a href="https://theshy.fun" target="_blank" rel="noopener">A Casual Boy</a><br><strong><em>github</em></strong>: &ensp; <a href="http://github.com/leisongbai" target="_blank" rel="noopener">Casual Boy</a></p><h1 id="About-Me"><a href="#About-Me" class="headerlink" title="About Me"></a>About Me</h1><div class="alert-blue"> 上次更新时间: 2019-11-25 13：45</div><p><strong>1.我或许是个无聊的人吧，兴趣不多</strong></p><p><strong>2.随心所欲,我的计划赶不上我的变化啊</strong></p><p><strong>3.有时候心血来潮会对某些东西和狂热,但有时又会突然感到无趣而放弃</strong></p><p><strong>4.不知道为啥,我常常喜欢说”唉”</strong></p><p><strong>5.我在认真做事的时候不喜欢被其他事情打扰,我会对正在做的以外的事很敷衍</strong></p><p><strong>6.今天听了学长他的面试经历后,体会好了基础的重要性!</strong></p><p><strong>7.我自以为是个讲效率的人,但是今天发现方法和方向是很重要的,否则做的都是无用功</strong></p><p><strong>8.理财应该是终生的习惯</strong></p><p><strong>9.兴趣使然,兴趣来的快去的也快,什么都不能坚持吗？(包括感情？)</strong></p>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>about</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="Casual-Lei"><a href="#Casual-Lei" class="headerlink" title="Casual_Lei"></a>Casual_Lei</h1><p><strong>Freedom of living</strong><br><strong><em>Email</em></strong>: &ensp; <a href="mailto:2574162899@qq.com" target="_blank" rel="noopener">2574162899@qq.com</a><br><strong><em>Homepage</em></strong>: &ensp; <a href="https://theshy.fun" target="_blank" rel="noopener">A Casual Boy</a><br><strong><em>github</em></strong>: &ensp; <a href="http://github.com/leisongbai" target="_blank" rel="noopener">Casual Boy</a></p><h1 id="About-Me"><a href="#About-Me" class="headerlink" title="About Me"></a>About Me</h1><div class="alert-blue"> 上次更新时间: 2019-11-25 13：45</div><p><strong>1.我或许是个无聊的人吧，兴趣不多</strong></p><p><strong>2.随心所欲,我的计划赶不上我的变化啊</strong></p><p><strong>3.有时候心血来潮会对某些东西和狂热,但有时又会突然感到无趣而放弃</strong></p><p><strong>4.我在认真做事的时候不喜欢被其他事情打扰,我会对正在做的以外的事很敷衍</strong></p><p><strong>5.今天听了学长他的面试经历后,体会好了基础的重要性!</strong></p><p><strong>6.我自以为是个讲效率的人,但是今天发现方法和方向是很重要的,否则做的都是无用功</strong></p><p><strong>7.理财应该是终生的习惯(但我不会啊！)</strong></p><p><strong>8.规律的生活</strong></p>]]></content>
       
     </entry>
     

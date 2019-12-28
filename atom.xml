@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://leisongbai.github.io/"/>
-  <updated>2019-09-16T09:50:30.045Z</updated>
+  <updated>2019-12-28T09:30:09.566Z</updated>
   <id>http://leisongbai.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>sanic静态文件</title>
+    <link href="http://leisongbai.github.io/2019/12/28/sanic%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E8%AE%BE%E7%BD%AE/"/>
+    <id>http://leisongbai.github.io/2019/12/28/sanic静态文件路径设置/</id>
+    <published>2019-12-28T09:30:09.566Z</published>
+    <updated>2019-12-28T09:30:09.566Z</updated>
+    
+    <content type="html"><![CDATA[<p>前几天在写一个项目,用sanic重写之前的网站。很简单的，<br>因为是静态的，所以连JinJa2都不用。但是还是遇到一点问题。</p><h3 id="静态文件的路径设置"><a href="#静态文件的路径设置" class="headerlink" title="静态文件的路径设置"></a>静态文件的路径设置</h3><h4 id="1-直接通过app进行设置"><a href="#1-直接通过app进行设置" class="headerlink" title="1.直接通过app进行设置"></a>1.直接通过app进行设置</h4><pre><code>from sanic import Sanicapp = Sanic()app.static(&apos;/static&apos;, &apos;/static&apos;)参数分别为uri和文件的地址</code></pre><h4 id="2-设置蓝图"><a href="#2-设置蓝图" class="headerlink" title="2.设置蓝图"></a>2.设置蓝图</h4><pre><code>from sanic import Sanicfrom sanic.blueprint import Blueprintapp = Sanic()bp = Blueprint(&apos;bp&apos;, url_prefix=&apos;/bp&apos;)bp.static(&apos;/static&apos;, &apos;/static&apos;)参数一样，但是蓝图的uri会自动添加前缀</code></pre><p>还有就是使用docker进行环境部署很方便,但是要注意文件的路径</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;前几天在写一个项目,用sanic重写之前的网站。很简单的，&lt;br&gt;因为是静态的，所以连JinJa2都不用。但是还是遇到一点问题。&lt;/p&gt;
+&lt;h3 id=&quot;静态文件的路径设置&quot;&gt;&lt;a href=&quot;#静态文件的路径设置&quot; class=&quot;headerlink&quot; title=&quot;静态
+      
+    
+    </summary>
+    
+    
+      <category term="笔记" scheme="http://leisongbai.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="sanic" scheme="http://leisongbai.github.io/tags/sanic/"/>
+    
+  </entry>
   
   <entry>
     <title>django中redis的使用</title>
